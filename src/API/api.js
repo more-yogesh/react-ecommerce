@@ -11,10 +11,3 @@ const api = axios.create({
 });
 
 export default api;
-
-// axios.post('http://best-it-training.com/api/login', values, headers).then(response => {
-//     // console.log('RESPO', );
-//     sessionStorage.setItem('token', 'Bearer ' + response.data.data.token);
-// }).catch(err => {
-//     console.error("THIUS IS ERROR AREA", err);
-// })

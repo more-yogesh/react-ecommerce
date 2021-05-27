@@ -2,6 +2,7 @@ import Login from "./screens/Login.screen";
 import { Route, Switch } from 'react-router-dom';
 import Dashboard from "./screens/Dashboard.screen";
 import Category from "./screens/Category.screen";
+import CategoryCreate from "./screens/CategoryCreate.screen";
 
 function App() {
     return (
@@ -13,8 +14,11 @@ function App() {
                 <Route path="/dashboard">
                     <Dashboard />
                 </Route>
-                <Route path="/category">
+                <Route exact path="/category">
                     <Category />
+                </Route>
+                <Route path="/category/create">
+                    <CategoryCreate />
                 </Route>
             </Switch>
         </div>

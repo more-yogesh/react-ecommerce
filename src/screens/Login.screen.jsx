@@ -1,9 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
-import axios from 'axios';
 import api from '../API/api';
+import { useHistory } from 'react-router-dom'
+import Counter from './../components/Counter.component'
 
 const Login = () => {
+
+    const history = useHistory();
 
     const initialValues = {
         email: "",
@@ -16,11 +19,11 @@ const Login = () => {
             alert('Loing Success');
             sessionStorage.setItem('token', 'Bearer ' + response.data.data.token);
             // redirect to dashboard
+            history.push('/dashboard');
         }).catch(err => {
             alert('Credentials are wrong please check entered details');
         });
-
-        console.log('DEFAULT VALUES', values);
+        // console.log('DEFAULT VALUES', values);
     }
     const validateSchema = Yup.object().shape({
         email: Yup.string().email().required(),
@@ -43,6 +46,7 @@ const Login = () => {
                                         <div className="p-5">
                                             <div className="text-center">
                                                 <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                                <Counter name="My Counter" />
                                             </div>
                                             <Formik
                                                 onSubmit={submitHandler}
@@ -75,7 +79,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
