@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Dashboard from "./screens/Dashboard.screen";
 import Category from "./screens/Category.screen";
 import CategoryCreate from "./screens/CategoryCreate.screen";
+import CategoryEdit from "./screens/CategoryEdit.screen";
 
 function App() {
     return (
@@ -19,6 +20,9 @@ function App() {
                 </Route>
                 <Route path="/category/create">
                     <CategoryCreate />
+                </Route>
+                <Route exact path="/category/:id/edit">
+                    <CategoryEdit />
                 </Route>
             </Switch>
         </div>

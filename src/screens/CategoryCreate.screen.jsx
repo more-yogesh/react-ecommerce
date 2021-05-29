@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import Card from './../components/Card.component';
 import api from "../API/api";
 
-const CategoryCreate = (props) => {
+const CategoryCreate = () => {
 
     const formInitvalues = {
         name: '',
@@ -16,11 +16,15 @@ const CategoryCreate = (props) => {
 
     const submitHandler = (formValues) => {
         // console.log(formValues);
+        // 500 error serverv error // coding mistake
+        // 419 // anauthorised
+        // 422 // validation error
+        // 200 not error
         api.post('/categories', formValues)
             .then(response => {
                 console.log(response);
             }).catch(err => {
-                console.log(err);
+                console.log(err.errors);
             });
     }
 

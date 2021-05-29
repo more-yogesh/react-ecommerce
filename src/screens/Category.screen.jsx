@@ -48,12 +48,12 @@ const Category = () => {
                                                     <tr>
                                                         <td>{index + 1}</td>
                                                         <td>{category.name}</td>
-                                                        <td>{category.description}</td>
+                                                        <td>{category.description.substring(0, 15)}...</td>
                                                         <td><img src={category.thumb} /></td>
                                                         <td>
-                                                            <a href="#" className="btn btn-primary btn-sm">
+                                                            <Link to={`/category/${category.id}/edit`} className="btn btn-primary btn-sm">
                                                                 <span className="fas fa-edit"></span>
-                                                            </a>
+                                                            </Link>
                                                             <a href="#" className="btn btn-danger btn-sm">
                                                                 <span className="fas fa-trash"></span>
                                                             </a>
